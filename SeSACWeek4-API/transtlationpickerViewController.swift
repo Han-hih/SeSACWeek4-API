@@ -82,17 +82,20 @@ class transtlationpickerViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func selectLanguage() {
-//        if currentLanguage.text == "" && languageList[0].korean == "한국어" && currentLanguage.isSelected {
-//            currentLanguage.text = "한국어"
-//        } else {
-//            resultLanguage.text == "" && languageList[0].korean == "한국어"
-//            resultLanguage.text = "한국어"
-//        }
+        if currentLanguage.text == "" && currentLanguage.isEditing {
+            currentLanguage.text = "한국어"
+        } else if resultLanguage.text == "" && resultLanguage.isEditing {
+            resultLanguage.text = "한국어"
+        }
         view.endEditing(true)
     }
     
     @objc func cancelLanguage() {
-//        currentLanguage.text = ""
+        if currentLanguage.text != "" {
+            currentLanguage.text = ""
+        } else if resultLanguage.text != "" {
+            resultLanguage.text = ""
+        }
         view.endEditing(true)
     }
     
