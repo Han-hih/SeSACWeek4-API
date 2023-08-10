@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8078736F2A8512B900417EE2 /* transtlationpickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8078736E2A8512B900417EE2 /* transtlationpickerViewController.swift */; };
 		80A396DF2A81CD9F00EA80BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A396DE2A81CD9F00EA80BF /* AppDelegate.swift */; };
 		80A396E12A81CD9F00EA80BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A396E02A81CD9F00EA80BF /* SceneDelegate.swift */; };
 		80A396E32A81CD9F00EA80BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A396E22A81CD9F00EA80BF /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8078736E2A8512B900417EE2 /* transtlationpickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transtlationpickerViewController.swift; sourceTree = "<group>"; };
 		80A396DB2A81CD9F00EA80BF /* SeSACWeek4-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSACWeek4-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A396DE2A81CD9F00EA80BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80A396E02A81CD9F00EA80BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				80A396E22A81CD9F00EA80BF /* ViewController.swift */,
 				80A396F62A81CE6500EA80BF /* WeatherViewController.swift */,
 				80A396E42A81CD9F00EA80BF /* Main.storyboard */,
+				8078736E2A8512B900417EE2 /* transtlationpickerViewController.swift */,
 				80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */,
 				80A397012A81E78800EA80BF /* VideoViewController.swift */,
 				80A397412A84743600EA80BF /* TranslationViewController.swift */,
@@ -177,6 +180,7 @@
 				80A396E32A81CD9F00EA80BF /* ViewController.swift in Sources */,
 				80A396F72A81CE6500EA80BF /* WeatherViewController.swift in Sources */,
 				80A397402A83230F00EA80BF /* VideoTableViewCell.swift in Sources */,
+				8078736F2A8512B900417EE2 /* transtlationpickerViewController.swift in Sources */,
 				80A397022A81E78800EA80BF /* VideoViewController.swift in Sources */,
 				80A396DF2A81CD9F00EA80BF /* AppDelegate.swift in Sources */,
 				80A396F52A81CDFD00EA80BF /* APIKey.swift in Sources */,

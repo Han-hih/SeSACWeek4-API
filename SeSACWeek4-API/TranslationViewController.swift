@@ -59,13 +59,15 @@ class TranslationViewController: UIViewController {
             "X-Naver-Client-Id": APIKey.naverID,
             "X-Naver-Client-Secret": APIKey.naverClientSecret
         ]
+        
             let parameters: Parameters = [
-                "source": "\(getSource())",   // 여기를 변경
+                "source": "\(self.getSource())",   // 여기를 변경
                 "target": "en",
-                "text": originalTextView.text ?? ""
+                "text": self.originalTextView.text ?? ""
             ]
+            
             //escaping closure
-                AF.request(url, method: .post, parameters: parameters, headers: header).validate(statusCode: 200...500).responseJSON { response in
+            AF.request(url, method: .post, parameters: parameters, headers: header).validate(statusCode: 200...500).responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
@@ -77,6 +79,5 @@ class TranslationViewController: UIViewController {
                     print(error)
                 }
             }
-            
         }
 }
