@@ -358,6 +358,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="lJ3-fN-yAw" appends="YES" id="MHP-Ay-WmO"/>
+                            <outletCollection property="gestureRecognizers" destination="lJ3-fN-yAw" appends="YES" id="kdF-x2-rwy"/>
                         </connections>
                     </view>
                     <connections>

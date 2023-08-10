@@ -47,6 +47,7 @@ class transtlationpickerViewController: UIViewController {
         resultLanguagePicker.delegate = self
         setUI()
         textFieldinputPickerView()
+        createToolBar()
     }
     
     func textFieldinputPickerView() {
@@ -59,7 +60,31 @@ class transtlationpickerViewController: UIViewController {
         currentText.text = ""
         resultLanguage.placeholder = "번역할 언어"
         resultText.text = ""
+        translateButton.setTitle("번역하기", for: .normal)
         
+    }
+    
+    func createToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let inputBtn = UIBarButtonItem(title: "입력", style: .plain, target: self, action: #selector(dismissKeyboard))
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelInput))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolBar.setItems([cancelButton, flexibleSpace,inputBtn], animated: false)
+        currentText.inputAccessoryView = toolBar
+        resultText.inputAccessoryView = toolBar
+        
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    @objc func cancelInput() {
+        if currentText.isEditable {
+            currentText.text = ""
+        } else {
+            resultText.text = ""
+        }
+        view.endEditing(true)
     }
     
     @IBAction func translateButtonTapped(_ sender: UIButton) {
@@ -89,13 +114,13 @@ class transtlationpickerViewController: UIViewController {
     }
     
     
-
-
-@IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
-    view.endEditing(true)
     
-}
-
+    
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+        
+    }
+    
 }
 
 
