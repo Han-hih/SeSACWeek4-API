@@ -18,6 +18,8 @@ class transtlationpickerViewController: UIViewController {
     @IBOutlet var resultText: UITextView!
     
     var languagePicker = UIPickerView()
+    var resultLanguagePicker = UIPickerView()
+    
     let languageList: [(english: String, korean: String)] = [
         ("ko", "한국어"),
         ("en", "영어"),
@@ -31,21 +33,21 @@ class transtlationpickerViewController: UIViewController {
         ("ru", "러시아어"),
         ("es", "스페인어"),
         ("it", "이탈리아어"),
-        ("fr", "프랑스어)")
+        ("fr", "프랑스어")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
         languagePicker.delegate = self
         languagePicker.dataSource = self
-        
-        
+        resultLanguagePicker.delegate = self
+        resultLanguagePicker.delegate = self
         setUI()
         textFieldinputPickerView()
     }
     
     func textFieldinputPickerView() {
         currentLanguage.inputView = languagePicker
-        resultLanguage.inputView = languagePicker
+        resultLanguage.inputView = resultLanguagePicker
     }
     
     func setUI() {
@@ -69,9 +71,13 @@ extension transtlationpickerViewController: UIPickerViewDelegate, UIPickerViewDa
         return languageList.count
     }
     
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        <#code#>
-//    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if currentLanguage.isEditing {
+            currentLanguage.text = languageList[row].korean
+        } else {
+            resultLanguage.text = languageList[row].korean
+        }
+    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return languageList[row].korean
