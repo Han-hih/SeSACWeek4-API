@@ -14,6 +14,14 @@
 		80A396E82A81CDA000EA80BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A396E72A81CDA000EA80BF /* Assets.xcassets */; };
 		80A396EB2A81CDA000EA80BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80A396E92A81CDA000EA80BF /* LaunchScreen.storyboard */; };
 		80A396F32A81CDB300EA80BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 80A396F22A81CDB300EA80BF /* .gitignore */; };
+		80A396F52A81CDFD00EA80BF /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A396F42A81CDFD00EA80BF /* APIKey.swift */; };
+		80A396F72A81CE6500EA80BF /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A396F62A81CE6500EA80BF /* WeatherViewController.swift */; };
+		80A396FA2A81CEA400EA80BF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 80A396F92A81CEA400EA80BF /* SwiftyJSON */; };
+		80A396FD2A81CEAE00EA80BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 80A396FC2A81CEAE00EA80BF /* Alamofire */; };
+		80A397002A81CEB900EA80BF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 80A396FF2A81CEB900EA80BF /* Kingfisher */; };
+		80A397022A81E78800EA80BF /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A397012A81E78800EA80BF /* VideoViewController.swift */; };
+		80A397402A83230F00EA80BF /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */; };
+		80A397422A84743600EA80BF /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A397412A84743600EA80BF /* TranslationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,11 @@
 		80A396EA2A81CDA000EA80BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80A396EC2A81CDA000EA80BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A396F22A81CDB300EA80BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		80A396F42A81CDFD00EA80BF /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		80A396F62A81CE6500EA80BF /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		80A397012A81E78800EA80BF /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		80A397412A84743600EA80BF /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A397002A81CEB900EA80BF /* Kingfisher in Frameworks */,
+				80A396FA2A81CEA400EA80BF /* SwiftyJSON in Frameworks */,
+				80A396FD2A81CEAE00EA80BF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,11 +77,16 @@
 				80A396DE2A81CD9F00EA80BF /* AppDelegate.swift */,
 				80A396E02A81CD9F00EA80BF /* SceneDelegate.swift */,
 				80A396E22A81CD9F00EA80BF /* ViewController.swift */,
+				80A396F62A81CE6500EA80BF /* WeatherViewController.swift */,
 				80A396E42A81CD9F00EA80BF /* Main.storyboard */,
+				80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */,
+				80A397012A81E78800EA80BF /* VideoViewController.swift */,
+				80A397412A84743600EA80BF /* TranslationViewController.swift */,
 				80A396E72A81CDA000EA80BF /* Assets.xcassets */,
 				80A396E92A81CDA000EA80BF /* LaunchScreen.storyboard */,
 				80A396EC2A81CDA000EA80BF /* Info.plist */,
 				80A396F22A81CDB300EA80BF /* .gitignore */,
+				80A396F42A81CDFD00EA80BF /* APIKey.swift */,
 			);
 			path = "SeSACWeek4-API";
 			sourceTree = "<group>";
@@ -86,6 +107,11 @@
 			dependencies = (
 			);
 			name = "SeSACWeek4-API";
+			packageProductDependencies = (
+				80A396F92A81CEA400EA80BF /* SwiftyJSON */,
+				80A396FC2A81CEAE00EA80BF /* Alamofire */,
+				80A396FF2A81CEB900EA80BF /* Kingfisher */,
+			);
 			productName = "SeSACWeek4-API";
 			productReference = 80A396DB2A81CD9F00EA80BF /* SeSACWeek4-API.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +140,11 @@
 				Base,
 			);
 			mainGroup = 80A396D22A81CD9F00EA80BF;
+			packageReferences = (
+				80A396F82A81CEA400EA80BF /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				80A396FB2A81CEAE00EA80BF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				80A396FE2A81CEB900EA80BF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 80A396DC2A81CD9F00EA80BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,8 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A397422A84743600EA80BF /* TranslationViewController.swift in Sources */,
 				80A396E32A81CD9F00EA80BF /* ViewController.swift in Sources */,
+				80A396F72A81CE6500EA80BF /* WeatherViewController.swift in Sources */,
+				80A397402A83230F00EA80BF /* VideoTableViewCell.swift in Sources */,
+				80A397022A81E78800EA80BF /* VideoViewController.swift in Sources */,
 				80A396DF2A81CD9F00EA80BF /* AppDelegate.swift in Sources */,
+				80A396F52A81CDFD00EA80BF /* APIKey.swift in Sources */,
 				80A396E12A81CD9F00EA80BF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,13 +327,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PUJ68C53FY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SeSACWeek4-API/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,13 +358,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PUJ68C53FY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SeSACWeek4-API/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +404,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80A396F82A81CEA400EA80BF /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		80A396FB2A81CEAE00EA80BF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		80A396FE2A81CEB900EA80BF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80A396F92A81CEA400EA80BF /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A396F82A81CEA400EA80BF /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		80A396FC2A81CEAE00EA80BF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A396FB2A81CEAE00EA80BF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		80A396FF2A81CEB900EA80BF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A396FE2A81CEB900EA80BF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 80A396D32A81CD9F00EA80BF /* Project object */;
 }
