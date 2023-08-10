@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class transtlationpickerViewController: UIViewController {
     
@@ -54,13 +56,46 @@ class transtlationpickerViewController: UIViewController {
     
     func setUI() {
         currentLanguage.placeholder = "현재 언어"
+        currentText.text = ""
         resultLanguage.placeholder = "번역할 언어"
+        resultText.text = ""
         
     }
     
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
+    @IBAction func translateButtonTapped(_ sender: UIButton) {
+        let url = "https://openapi.naver.com/v1/papago/n2mt"
+        let header: HTTPHeaders = [
+            "X-Naver-Client-Id": APIKey.naverID,
+            "X-Naver-Client-Secret": APIKey.naverClientSecret
+        ]
+        
+        let parameters: Parameters = [
+            "source": "\(currentLang)",   // 여기를 변경
+            "target": "\(resultLang)",
+            "text": currentText.text ?? ""
+        ]
+        AF.request(url, method: .post, parameters: parameters, headers: header).validate(statusCode: 200...500).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                
+                let data = json["message"]["result"]["translatedText"].stringValue
+                self.resultText.text = data
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
+    
+    
+
+
+@IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+    view.endEditing(true)
+    
+}
+
 }
 
 
