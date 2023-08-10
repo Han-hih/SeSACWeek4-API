@@ -9,7 +9,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class transtlationpickerViewController: UIViewController {
+class transtlationpickerViewController: UIViewController, UITextViewDelegate {
     
     
     @IBOutlet var currentLanguage: UITextField!
@@ -45,9 +45,14 @@ class transtlationpickerViewController: UIViewController {
         languagePicker.dataSource = self
         resultLanguagePicker.delegate = self
         resultLanguagePicker.delegate = self
+        currentText.delegate = self
+        resultText.delegate = self
+        
+
         setUI()
         textFieldinputPickerView()
         createToolBar()
+        textFieldToolBar()
     }
     
     func textFieldinputPickerView() {
@@ -62,6 +67,33 @@ class transtlationpickerViewController: UIViewController {
         resultText.text = ""
         translateButton.setTitle("번역하기", for: .normal)
         
+
+    }
+  
+    func textFieldToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let inputBtn = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectLanguage))
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelLanguage))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolBar.setItems([cancelButton, flexibleSpace,inputBtn], animated: false)
+        currentLanguage.inputAccessoryView = toolBar
+        resultLanguage.inputAccessoryView = toolBar
+    }
+    
+    @objc func selectLanguage() {
+//        if currentLanguage.text == "" && languageList[0].korean == "한국어" && currentLanguage.isSelected {
+//            currentLanguage.text = "한국어"
+//        } else {
+//            resultLanguage.text == "" && languageList[0].korean == "한국어"
+//            resultLanguage.text = "한국어"
+//        }
+        view.endEditing(true)
+    }
+    
+    @objc func cancelLanguage() {
+//        currentLanguage.text = ""
+        view.endEditing(true)
     }
     
     func createToolBar() {
