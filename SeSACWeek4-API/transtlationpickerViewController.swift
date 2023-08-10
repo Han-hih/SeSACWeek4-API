@@ -35,6 +35,8 @@ class transtlationpickerViewController: UIViewController {
         ("it", "이탈리아어"),
         ("fr", "프랑스어")
     ]
+    var currentLang = ""
+    var resultLang = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         languagePicker.delegate = self
@@ -74,8 +76,12 @@ extension transtlationpickerViewController: UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if currentLanguage.isEditing {
             currentLanguage.text = languageList[row].korean
+            currentLang = languageList[row].english
+            print(currentLang)
         } else {
             resultLanguage.text = languageList[row].korean
+            resultLang = languageList[row].english
+            print(resultLang)
         }
     }
     
