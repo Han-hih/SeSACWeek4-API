@@ -23,6 +23,15 @@
 		80A397022A81E78800EA80BF /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A397012A81E78800EA80BF /* VideoViewController.swift */; };
 		80A397402A83230F00EA80BF /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */; };
 		80A397422A84743600EA80BF /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A397412A84743600EA80BF /* TranslationViewController.swift */; };
+		80C62F2C2A9076DE00BC6FAC /* KakaoVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C62F2B2A9076DE00BC6FAC /* KakaoVideo.swift */; };
+		80DE764A2A8A022D0031CDB7 /* Boxoffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DE76492A8A022D0031CDB7 /* Boxoffice.swift */; };
+		80F0778D2A85BAA0002725F7 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0778C2A85BAA0002725F7 /* ReusableViewProtocol.swift */; };
+		80F0778F2A85BD03002725F7 /* UserdefualtHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0778E2A85BD03002725F7 /* UserdefualtHelper.swift */; };
+		80F077912A85C514002725F7 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F077902A85C514002725F7 /* EndPoint.swift */; };
+		80F077932A85C5CE002725F7 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F077922A85C5CE002725F7 /* URL+Extension.swift */; };
+		80F077952A85C77C002725F7 /* KakoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F077942A85C77C002725F7 /* KakoAPIManager.swift */; };
+		80F077972A85E365002725F7 /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F077962A85E365002725F7 /* TranslateAPIManager.swift */; };
+		80F077992A85F9F3002725F7 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F077982A85F9F3002725F7 /* AsyncViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +50,15 @@
 		80A397012A81E78800EA80BF /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		80A397412A84743600EA80BF /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		80C62F2B2A9076DE00BC6FAC /* KakaoVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoVideo.swift; sourceTree = "<group>"; };
+		80DE76492A8A022D0031CDB7 /* Boxoffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boxoffice.swift; sourceTree = "<group>"; };
+		80F0778C2A85BAA0002725F7 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		80F0778E2A85BD03002725F7 /* UserdefualtHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefualtHelper.swift; sourceTree = "<group>"; };
+		80F077902A85C514002725F7 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		80F077922A85C5CE002725F7 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		80F077942A85C77C002725F7 /* KakoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakoAPIManager.swift; sourceTree = "<group>"; };
+		80F077962A85E365002725F7 /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = "<group>"; };
+		80F077982A85F9F3002725F7 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,17 +97,26 @@
 				80A396DE2A81CD9F00EA80BF /* AppDelegate.swift */,
 				80A396E02A81CD9F00EA80BF /* SceneDelegate.swift */,
 				80A396E22A81CD9F00EA80BF /* ViewController.swift */,
+				80DE76492A8A022D0031CDB7 /* Boxoffice.swift */,
 				80A396F62A81CE6500EA80BF /* WeatherViewController.swift */,
 				80A396E42A81CD9F00EA80BF /* Main.storyboard */,
 				8078736E2A8512B900417EE2 /* transtlationpickerViewController.swift */,
 				80A3973F2A83230F00EA80BF /* VideoTableViewCell.swift */,
 				80A397012A81E78800EA80BF /* VideoViewController.swift */,
+				80F077942A85C77C002725F7 /* KakoAPIManager.swift */,
+				80C62F2B2A9076DE00BC6FAC /* KakaoVideo.swift */,
+				80F077902A85C514002725F7 /* EndPoint.swift */,
+				80F077922A85C5CE002725F7 /* URL+Extension.swift */,
 				80A397412A84743600EA80BF /* TranslationViewController.swift */,
-				80A396E72A81CDA000EA80BF /* Assets.xcassets */,
+				80F077962A85E365002725F7 /* TranslateAPIManager.swift */,
 				80A396E92A81CDA000EA80BF /* LaunchScreen.storyboard */,
+				80F077982A85F9F3002725F7 /* AsyncViewController.swift */,
+				80A396E72A81CDA000EA80BF /* Assets.xcassets */,
 				80A396EC2A81CDA000EA80BF /* Info.plist */,
 				80A396F22A81CDB300EA80BF /* .gitignore */,
 				80A396F42A81CDFD00EA80BF /* APIKey.swift */,
+				80F0778C2A85BAA0002725F7 /* ReusableViewProtocol.swift */,
+				80F0778E2A85BD03002725F7 /* UserdefualtHelper.swift */,
 			);
 			path = "SeSACWeek4-API";
 			sourceTree = "<group>";
@@ -177,13 +204,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				80A397422A84743600EA80BF /* TranslationViewController.swift in Sources */,
+				80F077992A85F9F3002725F7 /* AsyncViewController.swift in Sources */,
+				80F0778D2A85BAA0002725F7 /* ReusableViewProtocol.swift in Sources */,
 				80A396E32A81CD9F00EA80BF /* ViewController.swift in Sources */,
 				80A396F72A81CE6500EA80BF /* WeatherViewController.swift in Sources */,
 				80A397402A83230F00EA80BF /* VideoTableViewCell.swift in Sources */,
 				8078736F2A8512B900417EE2 /* transtlationpickerViewController.swift in Sources */,
+				80F077912A85C514002725F7 /* EndPoint.swift in Sources */,
 				80A397022A81E78800EA80BF /* VideoViewController.swift in Sources */,
+				80F077932A85C5CE002725F7 /* URL+Extension.swift in Sources */,
+				80DE764A2A8A022D0031CDB7 /* Boxoffice.swift in Sources */,
 				80A396DF2A81CD9F00EA80BF /* AppDelegate.swift in Sources */,
+				80F077952A85C77C002725F7 /* KakoAPIManager.swift in Sources */,
+				80C62F2C2A9076DE00BC6FAC /* KakaoVideo.swift in Sources */,
 				80A396F52A81CDFD00EA80BF /* APIKey.swift in Sources */,
+				80F077972A85E365002725F7 /* TranslateAPIManager.swift in Sources */,
+				80F0778F2A85BD03002725F7 /* UserdefualtHelper.swift in Sources */,
 				80A396E12A81CD9F00EA80BF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

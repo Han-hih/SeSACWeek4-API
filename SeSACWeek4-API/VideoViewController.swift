@@ -10,24 +10,24 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
-struct video {
-    let author: String
-    let date: String
-    let time: Int
-    let thumbnail: String
-    let title: String
-    let link: String
-    
-    var contents: String {
-            return "\(author) | \(time)회\n\(date)"
-    }
-}
+//struct video {
+//    let author: String
+//    let date: String
+//    let time: Int
+//    let thumbnail: String
+//    let title: String
+//    let link: String
+//
+//    var contents: String {
+//            return "\(author) | \(time)회\n\(date)"
+//    }
+//}
 
 class VideoViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     @IBOutlet var tableView: UITableView!
-    var videoList: [video] = []
+    var videoList: [Document] = []
     var page = 1
     var isEnd = false
     
@@ -39,61 +39,73 @@ class VideoViewController: UIViewController {
         tableView.rowHeight = 140
         
         searchBar.delegate = self
-        
+        callRequest(query: "아이유", page: 1)
     }
     
     func callRequest(query: String, page: Int) {
-        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=30&page=\(page)"
-        let header: HTTPHeaders = ["Authorization": APIKey.kakaoKey]
-        print(url)
-        AF
-            .request(url, method: .get, headers: header)
-            .validate(statusCode: 200...500)
-            .responseJSON { response in
+        
+        KakaoAPIManager.shared.callRequest(type: .video, query: query) { value in
+            print("+++++++++\(value)")
             
-                switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                    print(response.response?.statusCode)
-                    
-                    let statusCode = response.response?.statusCode ?? 500
-                    
-                    if statusCode == 200 {
-                        
-                        self.isEnd = json["meta"]["is_end"].boolValue
-                        for item in json["documents"].arrayValue {
-                            let title = item["title"].stringValue
-                            let author = item["author"].stringValue
-                            let date = item["datetime"].stringValue
-                            let thumbnail = item["thumbnail"].stringValue
-                            let count = item["play_time"].intValue
-                            let link = item["url"].stringValue
-                            
-                            let data = video(author: author, date: date, time: count, thumbnail: thumbnail, title: title, link: link)
-                            self.videoList.append(data)
-                        }
-                        print(self.videoList)
-                        self.tableView.reloadData()
-                        
-                    } else {
-                        print("문제가 발생했어요. 잠시 후 다시 시도해 주세요.")
-                    }
-                    
-                   
-                            
-            case .failure(let error):
-                print(error)
+            self.isEnd = value.meta.isEnd
+            for item in value.documents {
+                let author = item.author
+                let date = item.datetime
+                let time = item.playTime
+                let thumbnail = item.thumbnail
+                let title = item.title
+                let link = item.url
+                self.videoList.append(Document(author: author, datetime: date, playTime: time, thumbnail: thumbnail, title: title, url: link))
             }
+            self.tableView.reloadData()
+            
         }
-        
-        
+        //        AF  .request(url, method: .get, headers: header)
+        //            .validate(statusCode: 200...500)
+        //            .responseJSON { response in
+        //
+        //                switch response.result {
+        //            case .success(let value):
+        //                let json = JSON(value)
+        //                print("JSON: \(json)")
+        //                    print(response.response?.statusCode)
+        //
+        //                    let statusCode = response.response?.statusCode ?? 500
+        //
+        //                    if statusCode == 200 {
+        //
+        //                        self.isEnd = json["meta"]["is_end"].boolValue
+        //                        for item in json["documents"].arrayValue {
+        //                            let title = item["title"].stringValue
+        //                            let author = item["author"].stringValue
+        //                            let date = item["datetime"].stringValue
+        //                            let thumbnail = item["thumbnail"].stringValue
+        //                            let count = item["play_time"].intValue
+        //                            let link = item["url"].stringValue
+        //
+        //                            let data = video(author: author, date: date, time: count, thumbnail: thumbnail, title: title, link: link)
+        //                            self.videoList.append(data)
+        //                        }
+        //                        print(self.videoList)
+        //                        self.tableView.reloadData()
+        //
+        //                    } else {
+        //                        print("문제가 발생했어요. 잠시 후 다시 시도해 주세요.")
+        //                    }
+        //
+        //
+        //
+        //            case .failure(let error):
+        //                print(error)
+        //            }
+        //        }
+        //
+        //
+        //
+        //    }
         
     }
-   
 }
-
 // UITableViewDataSourcePrefetching: iOS10이상 사용 가능한 프로토콜, cellForRowAt 메서드가 호출되기 전에 미리 호출됨
 extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     // 셀이 화면에 보이기 직전에 필요한 리소스를 미리 다운 받는 기능(용량이 커지면 시간이 오래 걸리고 사용자가 불편할 수 있다.)
@@ -118,10 +130,11 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell") as? VideoTableViewCell else { return UITableViewCell() }
-        
-        cell.titleLabel.text = videoList[indexPath.row].title
-        cell.contentLabel.text = videoList[indexPath.row].contents
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier) as? VideoTableViewCell else { return UITableViewCell() }
+        let videoIndex = videoList[indexPath.row]
+//        "\(author) | \(time)회\n\(date)"
+        cell.titleLabel.text = videoIndex.title
+        cell.contentLabel.text = "\(videoIndex.author) | \(videoIndex.playTime)회\n\(videoIndex.datetime)"
         // 영상이나 고화질이미지는 prefetching을 쓰는 것이 더 좋다.
         if let url = URL(string: videoList[indexPath.row].thumbnail) {
             cell.thumbnailImageView.kf.setImage(with: url)

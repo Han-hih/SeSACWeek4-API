@@ -9,8 +9,8 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class TranslationViewController: UIViewController {
-
+class TranslationViewController: UIViewController {  //PropertyWrapper
+    
     @IBOutlet var originalTextView: UITextView!
     @IBOutlet var translateButton: UIButton!
     @IBOutlet var translateTextView: UITextView!
@@ -18,11 +18,25 @@ class TranslationViewController: UIViewController {
     @IBOutlet var detectLanguage: UILabel!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        originalTextView.text = UserdefualtHelper.standard.nickname
+        
+        UserdefualtHelper.standard.nickname = "칙촉" //set의 뉴밸류에 들어가게 된다.
+        
+        UserDefaults.standard.set("고래밥", forKey: "nickname")
+        UserDefaults.standard.set(33, forKey: "age")
+        
+        UserDefaults.standard.string(forKey: "nickname")
+        UserDefaults.standard.integer(forKey: "age")
         originalTextView.text = ""
         translateTextView.text = ""
         translateTextView.isEditable = false
+        
+        
         
     }
     
@@ -51,33 +65,10 @@ class TranslationViewController: UIViewController {
         }
         return detectLanguage.text ?? ""
     }
-    
+    // 라이브러리가 해야할 일을 다른 파일에서 해줘서 현재 파일에서 import를 안해줘도 된다.
     @IBAction func requestButtonTapped(_ sender: UIButton) {
-        
-        let url = "https://openapi.naver.com/v1/papago/n2mt"
-        let header: HTTPHeaders = [
-            "X-Naver-Client-Id": APIKey.naverID,
-            "X-Naver-Client-Secret": APIKey.naverClientSecret
-        ]
-        
-            let parameters: Parameters = [
-                "source": "\(self.getSource())",   // 여기를 변경
-                "target": "en",
-                "text": self.originalTextView.text ?? ""
-            ]
-            
-            //escaping closure
-            AF.request(url, method: .post, parameters: parameters, headers: header).validate(statusCode: 200...500).responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    print("JSON: \(json)")
-                    
-                    let data = json["message"]["result"]["translatedText"].stringValue
-                    self.translateTextView.text = data
-                case .failure(let error):
-                    print(error)
-                }
-            }
+        TranslateAPIManager.shared.callRequest(text: originalTextView.text ?? "") { result in
+            self.translateTextView.text = result
         }
+    }
 }

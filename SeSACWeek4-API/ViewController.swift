@@ -15,7 +15,11 @@ struct Movie {
     
 }
 
+
+
 class ViewController: UIViewController {
+    
+    var result: BoxOffice?
     
     @IBOutlet var movieTableView: UITableView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
@@ -37,28 +41,41 @@ class ViewController: UIViewController {
                 indicatorView.isHidden = false
                 let url = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=\(date)"
                 
-                AF.request(url, method: .get).validate().responseJSON { response in
-                    switch response.result {
-                    case .success(let value):
-                        let json = JSON(value)
-                        print("JSON: \(json)")
-                        
-                        for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
-                            let movieNm = item["movieNm"].stringValue
-                            let openDt = item["openDt"].stringValue
-                            self.movieList.append(Movie(title: movieNm, release: openDt))
-                        }
-                        self.indicatorView.isHidden = true
-                        self.indicatorView.stopAnimating()
-                        self.movieTableView.reloadData()
-                        
-                    case .failure(let error):
-                        print(error)
+                AF.request(url, method: .get).validate()
+                    .responseDecodable(of: BoxOffice.self) { response in
+                        print(response.value)
+                        self.result = response.value
                     }
-                }
+                    }
+                
+                
+                
+                
+                
+                
+                
+//                    .responseJSON { response in
+//                    switch response.result {
+//                    case .success(let value):
+//                        let json = JSON(value)
+//                        print("JSON: \(json)")
+//
+//                        for item in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
+//                            let movieNm = item["movieNm"].stringValue
+//                            let openDt = item["openDt"].stringValue
+//                            self.movieList.append(Movie(title: movieNm, release: openDt))
+//                        }
+//                        self.indicatorView.isHidden = true
+//                        self.indicatorView.stopAnimating()
+//                        self.movieTableView.reloadData()
+//
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
             }
         }
-}
+
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
@@ -69,7 +86,7 @@ extension ViewController: UISearchBarDelegate {
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
+        return result?.boxOfficeResult.dailyBoxOfficeList.count ?? 0
         
     }
     
